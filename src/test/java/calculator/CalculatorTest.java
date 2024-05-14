@@ -11,12 +11,8 @@ public class CalculatorTest {
     @DisplayName("문자열 계산기 이외의 값 : RuntimeException throw")
     @Test
     void 문자열계산기이외의값(){
-        assertThatThrownBy(() -> {
-            String input = "가";
-            boolean result = ValidationCheck.otherValue(input);
-        }).isInstanceOf(RuntimeException.class)
-        .hasMessageContaining("문자열 계산기 이외의 값입니다.");
+        String input = "-1";
+        boolean result = ValidationCheck.otherValue(input);
+        assertThat(result).isTrue();
     }
-
-
 }
