@@ -18,7 +18,6 @@ public class SeparatorTest {
         separator = new Separator();
     }
 
-
     @DisplayName("입력값을 쉼표를 기준으로 분리하기")
     @ParameterizedTest
     @ValueSource(strings = "1,2,3,4,5,6")
@@ -41,4 +40,10 @@ public class SeparatorTest {
         assertThat(separator.removeSeparator(input)).isEqualTo("123456");
     }
 
+//    @DisplayName("입력값 중 커스텀을 기준으로 분리하기")
+//    @ParameterizedTest
+//    @ValueSource(strings = "//;\n1;2;3;4;5;6")
+//    void 커스텀을기준으로분리하기(String input){
+//        assertThat(separator.splitCustom(input)).isEqualTo("123456");
+//    }
 }
