@@ -21,4 +21,12 @@ public class SeparatorTest {
         assertThat(Separator.splitColon(input)).isEqualTo("12346");
     }
 
+    @DisplayName("입력값을 콜론과쉼표 기준으로 분리하기")
+    @Test
+    void 콜론과쉼표로분리해보기(){
+        String input = "1,2:3,4:6";
+        String result = Separator.splitColon(input);
+        assertThat(Separator.splitComma(result)).isEqualTo("12346");
+    }
+
 }
