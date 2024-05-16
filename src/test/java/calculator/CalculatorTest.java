@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.in;
 
 public class CalculatorTest {
     @DisplayName("입력값을 구분자 기준으로 분리하는 작업")
@@ -38,10 +39,18 @@ public class CalculatorTest {
     void 커스텀_구분자_분리(){
         String input = "//;\n1;2;3";
         Calculator calculator = new Calculator(input);
-        assertThat(calculator.removeCustom()).isEqualTo(new String[]{"1", "2", "3"});
+        assertThat(calculator.remove()).isEqualTo(new String[]{"1", "2", "3"});
     }
 
-    
+    @DisplayName("입력값 구분자를 분리 후 각 숫자의 합을 반환하는 작업")
+    @Test
+    void 구분자_분리_숫자합_반환(){
+        String input = "//;\n1;2;3;4;5";
+        Calculator calculator = new Calculator(input);
+        String[] values = calculator.remove();
+        int result = calculator.sum(values);
+        assertThat(result).isEqualTo(15);
+    }
 
 
 }
