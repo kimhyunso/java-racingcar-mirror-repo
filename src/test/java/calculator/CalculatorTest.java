@@ -18,12 +18,18 @@ public class CalculatorTest {
 
     @DisplayName("입력값이 커스텀인지 판별하는 작업")
     @Test
-    void 커스텀인지판별(){
+    void 커스텀인지판별_True(){
         String input = "//;\n1;2;3;4;5";
         Calculator calculator = new Calculator(input);
-        boolean result = calculator.isCustom();
-        assertThat(result).isTrue();
+        assertThat(calculator.isCustom()).isTrue();
     }
 
+    @DisplayName("입력값이 커스텀인지 판별하는 작업")
+    @Test
+    void 커스텀인지판별_False(){
+        String input = "1,2:3:4,5";
+        Calculator calculator = new Calculator(input);
+        assertThat(calculator.isCustom()).isFalse();
+    }
 
 }
