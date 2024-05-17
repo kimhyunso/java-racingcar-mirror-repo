@@ -42,13 +42,16 @@ public class Calculator {
             return Arrays.stream(values)
                     .mapToInt(Integer::parseInt)
                     .filter(value -> {
-                        if (value < 0)
-                            throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
+                        isZeroLess(value);
                         return true;
                     }).sum();
         }catch (RuntimeException e){
             throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
         }
+    }
 
+    private void isZeroLess(int value) {
+        if (value < 0)
+            throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
     }
 }
