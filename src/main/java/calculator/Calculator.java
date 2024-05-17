@@ -27,9 +27,6 @@ public class Calculator {
         return input.split(REGEX_COMMA_COLON);
     }
 
-    public boolean isCustom() {
-        return Pattern.matches(REGEX_CUSTOM, input);
-    }
 
     public String[] remove() {
         Matcher matcher = Pattern.compile(REGEX_CUSTOM).matcher(input);
@@ -41,12 +38,17 @@ public class Calculator {
     }
 
     public int sum(String[] values) {
-        try {
+        try{
             return Arrays.stream(values)
                     .mapToInt(Integer::parseInt)
-                    .sum();
-        }catch(Exception ex){
+                    .filter(value -> {
+                        if (value < 0)
+                            throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
+                        return true;
+                    }).sum();
+        }catch (RuntimeException e){
             throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
         }
+
     }
 }
