@@ -10,7 +10,7 @@
    - [v] 커스텀 구분자 지정 가능 (커스텀 구분자는 문자열 앞부분의 '//' 와 '\n' 사이에 위치하는 문자를 커스텀 구분자로 사용한다.) Calculator#removeCustom()
    - [v] 콜론 구분자를 기준으로 분리하기  Calculator#remove()
    - [v] 커스텀 인지 판별하는 기능
-2. 문자열 계신기 숫자 이와의 값 또는 음수를 전달하는 경우 ValidationCheck#otherValue()
+2. [v] 문자열 계신기 숫자 이와의 값 또는 음수를 전달하는 경우 ValidationCheck#otherValue()
    - RuntimeException 예외를 throw 한다.
 
 
