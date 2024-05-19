@@ -17,7 +17,6 @@ public class CarListTest {
         CarList carList = new CarList(names);
         List<Car> cars = carList.getCars();
         assertThat(cars).isEqualTo(Arrays.asList(new Car("gabi"), new Car("qwer"), new Car("abc")));
-
     }
 
 

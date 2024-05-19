@@ -5,17 +5,18 @@ import java.util.Objects;
 public class Car {
 
     public static final int MAX_NO = 4;
-    private final String name;
+    private final CarName carName;
     private int position;
 
     public Car(String name) {
-        this.name = name;
+        this.carName = new CarName(name);
         position = 1;
     }
 
     public int process(int randomNumber) {
-        if (isMoreThanFour(randomNumber))
-            ++position;
+        if (isMoreThanFour(randomNumber)){
+            return ++position;
+        }
         return position;
     }
 
@@ -28,11 +29,11 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name);
+        return position == car.position && Objects.equals(carName.getName(), car.carName.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, position);
+        return Objects.hash(carName, position);
     }
 }

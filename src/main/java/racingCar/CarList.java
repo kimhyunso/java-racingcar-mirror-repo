@@ -10,8 +10,12 @@ public class CarList {
 
     public CarList(String names) {
         cars = Arrays.stream(names.split(","))
-                .map(name -> new Car(name))
+                .map(this::newInstance)
                 .collect(Collectors.toList());
+    }
+
+    private Car newInstance(String name) {
+        return new Car(name);
     }
 
     public List<Car> getCars() {
