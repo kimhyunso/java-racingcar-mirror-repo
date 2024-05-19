@@ -5,9 +5,10 @@
 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한명 이상일 수 있다.
 
 [] 각 자동차에 이름을 부여가능
-[] 자동차 이름은 5자를 초과할 수 없음 ValidationCheck#isFiveLessThan()
-    - [] 5자 초과인 경우 테스트
-    - [] 5자 미만인 경우 테스트
+[v] 자동차 이름은 5자를 초과할 수 없음 ValidationCheck#isFiveLessThan()
+    - [v] 5자 초과인 경우 테스트
+    - [v] 5자 미만인 경우 테스트
+    - [v] 이름이 비어있는 경우 테스트
 [] 자동차 이름은 쉼표(,)를 기준으로 구분 CarList#splitName()
 [] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력 CarReport#print()
 [] 전진하는 조건은 0~9사이 random 값을 구한 후 random 값이 4이상일 경우 Car#improve()
