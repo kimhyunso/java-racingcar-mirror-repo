@@ -1,9 +1,9 @@
 package racingCar;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingCar.controller.Car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -13,7 +13,7 @@ public class CarTest {
     @BeforeEach
     void setUp(){
         car = new Car("gabi");
-     }
+    }
 
     @DisplayName("4이상일경우 전진")
     @Test

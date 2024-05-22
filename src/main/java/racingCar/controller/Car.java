@@ -1,19 +1,22 @@
-package racingCar;
+package racingCar.controller;
+
+import racingCar.domain.CarName;
 
 import java.util.Objects;
 
 public class Car {
-    public static final int MAX_NO = 4;
-    private final String name;
+    private static final int RANDOM_NO = 4;
+    private CarName carName;
     private int position;
+
 
     public Car(String name) {
         this.position = 1;
-        this.name = name;
+        this.carName = new CarName(name);
     }
 
     public int move(int randomNo) {
-        if (randomNo >= MAX_NO)
+        if (randomNo >= RANDOM_NO)
             return ++position;
         return position;
     }
