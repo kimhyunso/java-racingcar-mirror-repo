@@ -27,22 +27,24 @@ public class CarList {
     }
 
     public List<Position> move() {
-        List<Position> result = new ArrayList<>();
-        int randomNo = random.nextInt(BOUND) + 1;
+        return cars.stream()
+                .map(this::mapPosition)
+                .collect(Collectors.toList());
+    }
 
-        for (Car car : cars){
-            result.add(car.move(randomNo));
-        }
-        return result;
+    private Position mapPosition(Car car) {
+        int randomNo = random.nextInt(BOUND) + 1;
+        return car.move(randomNo);
     }
 
     public List<Position> move(int randomNo) {
-        List<Position> result = new ArrayList<>();
+        return cars.stream()
+                .map(car -> mapPosition(car, randomNo))
+                .collect(Collectors.toList());
+    }
 
-        for (Car car : cars){
-           result.add(car.move(randomNo));
-        }
-        return result;
+    private Position mapPosition(Car car, int randomNo) {
+        return car.move(randomNo);
     }
 
 }
