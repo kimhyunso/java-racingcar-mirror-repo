@@ -24,11 +24,6 @@ public class CarList {
         return new Car(name);
     }
 
-    // fix: 테스트용
-    public List<Car> getList() {
-        return cars;
-    }
-
     public List<Integer> move() {
         List<Integer> result = new ArrayList<>();
         int randomNo = random.nextInt(4) + 1;
