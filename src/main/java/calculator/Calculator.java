@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ public class Calculator {
     public static final String REGEX_CUSTOM = "//(.)\\n(.*)";
     private String input;
 
+    private int test;
     public Calculator(){}
 
     public Calculator(String input) {
@@ -53,5 +55,12 @@ public class Calculator {
     private void isZeroLess(int value) {
         if (value < 0)
             throw new RuntimeException("문자열 이외의 값 또는 음수가 포함되어 있습니다.");
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(test);
     }
 }
