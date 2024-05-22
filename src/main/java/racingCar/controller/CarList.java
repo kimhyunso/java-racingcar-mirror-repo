@@ -1,5 +1,7 @@
 package racingCar.controller;
 
+import racingCar.domain.Position;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,16 +34,16 @@ public class CarList {
         int randomNo = random.nextInt(4) + 1;
 
         for (Car car : cars){
-            result.add(car.move(randomNo));
+            car.move(randomNo);
         }
         return result;
     }
 
-    public List<Integer> move(int randomNo) {
-        List<Integer> result = new ArrayList<>();
+    public List<Position> move(int randomNo) {
+        List<Position> result = new ArrayList<>();
 
         for (Car car : cars){
-            result.add(car.move(randomNo));
+           result.add(car.move(randomNo));
         }
         return result;
     }

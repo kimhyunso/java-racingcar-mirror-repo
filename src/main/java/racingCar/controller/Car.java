@@ -1,36 +1,37 @@
 package racingCar.controller;
 
 import racingCar.domain.CarName;
+import racingCar.domain.Position;
 
 import java.util.Objects;
 
 public class Car {
     private static final int RANDOM_NO = 4;
     private CarName carName;
-    private int position;
-
+    private Position position;
 
     public Car(String name) {
-        this.position = 1;
         this.carName = new CarName(name);
+        this.position = new Position();
     }
 
-    public int move(int randomNo) {
-        if (randomNo >= RANDOM_NO)
-            return ++position;
+    public Position move(int randomNo) {
+        position = position.stop();
+        if (randomNo >= RANDOM_NO){
+            position = position.move();
+        }
         return position;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name);
+        return position.equals(car.position) && carName.equals(car.carName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, position);
+        return Objects.hash(carName, position);
     }
 }
