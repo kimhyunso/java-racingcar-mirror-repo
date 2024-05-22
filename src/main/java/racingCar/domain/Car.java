@@ -1,7 +1,4 @@
-package racingCar.controller;
-
-import racingCar.domain.CarName;
-import racingCar.domain.Position;
+package racingCar.domain;
 
 import java.util.Objects;
 

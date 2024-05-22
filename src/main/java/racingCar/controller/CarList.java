@@ -1,5 +1,6 @@
 package racingCar.controller;
 
+import racingCar.domain.Car;
 import racingCar.domain.Position;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class CarList {
 
+    public static final int BOUND = 4;
     private List<Car> cars;
     private Random random;
     public CarList(String names) {
@@ -24,12 +26,12 @@ public class CarList {
         return new Car(name);
     }
 
-    public List<Integer> move() {
-        List<Integer> result = new ArrayList<>();
-        int randomNo = random.nextInt(4) + 1;
+    public List<Position> move() {
+        List<Position> result = new ArrayList<>();
+        int randomNo = random.nextInt(BOUND) + 1;
 
         for (Car car : cars){
-            car.move(randomNo);
+            result.add(car.move(randomNo));
         }
         return result;
     }
