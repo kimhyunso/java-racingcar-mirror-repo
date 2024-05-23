@@ -28,23 +28,23 @@ public class CarList {
 
     public List<Position> move() {
         return cars.stream()
-                .map(car -> mapPosition((x)->x>= BOUND, car))
+                .map(this::mapPosition)
                 .collect(Collectors.toList());
     }
 
-    private Position mapPosition(Predicate<Integer> predicate, Car car) {
+    private Position mapPosition(Car car) {
         int randomNo = random.nextInt(BOUND) + 1;
-        return car.move(predicate, randomNo);
+        return car.move(randomNo);
     }
 
     public List<Position> move(int randomNo) {
         return cars.stream()
-                .map(car -> mapPosition((x)->x>=BOUND, car, randomNo))
+                .map(car -> mapPosition(car, randomNo))
                 .collect(Collectors.toList());
     }
 
-    private Position mapPosition(Predicate<Integer> predicate, Car car, int randomNo) {
-        return car.move(predicate, randomNo);
+    private Position mapPosition(Car car, int randomNo) {
+        return car.move(randomNo);
     }
 
 }

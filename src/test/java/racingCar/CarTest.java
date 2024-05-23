@@ -19,12 +19,12 @@ public class CarTest {
     @DisplayName("4이상일경우 전진")
     @Test
     void move(){
-        assertThat(car.move((x)->x>=4, 4)).isEqualTo(new Position(2));
+        assertThat(car.move(4)).isEqualTo(new Position(2));
     }
 
     @DisplayName("4미만인경우 멈춤")
     @Test
     void stop(){
-        assertThat(car.move((x)->x>=4, 3)).isEqualTo(new Position(1));
+        assertThat(car.move(3)).isEqualTo(new Position(1));
     }
 }

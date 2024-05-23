@@ -13,9 +13,9 @@ public class Car {
         this.position = new Position();
     }
 
-    public Position move(Predicate<Integer> predicate, int randomNo) {
+    public Position move(int randomNo) {
         position = position.stop();
-        if (predicate.test(randomNo)){
+        if (randomNo >= RANDOM_NO){
             position = position.move();
         }
         return position;
