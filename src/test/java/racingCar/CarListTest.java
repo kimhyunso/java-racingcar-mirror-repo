@@ -18,7 +18,7 @@ public class CarListTest {
 
     @BeforeEach
     void setUp(){
-        cars = new CarList("gabi,abc,qwer");
+        cars = new CarList( "gabi,abc,qwer");
     }
 
     @DisplayName("자동차 이름을 쉼표로 구분")

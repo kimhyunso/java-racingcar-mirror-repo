@@ -1,6 +1,7 @@
 package racingCar.domain;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 public class Car {
     private static final int RANDOM_NO = 4;
@@ -12,9 +13,9 @@ public class Car {
         this.position = new Position();
     }
 
-    public Position move(int randomNo) {
+    public Position move(Predicate<Integer> predicate, int randomNo) {
         position = position.stop();
-        if (randomNo >= RANDOM_NO){
+        if (predicate.test(randomNo)){
             position = position.move();
         }
         return position;

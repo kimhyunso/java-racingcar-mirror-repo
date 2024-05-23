@@ -3,10 +3,10 @@ package racingCar.controller;
 import racingCar.domain.Car;
 import racingCar.domain.Position;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarList {
@@ -28,23 +28,23 @@ public class CarList {
 
     public List<Position> move() {
         return cars.stream()
-                .map(this::mapPosition)
+                .map(car -> mapPosition((x)->x>= BOUND, car))
                 .collect(Collectors.toList());
     }
 
-    private Position mapPosition(Car car) {
+    private Position mapPosition(Predicate<Integer> predicate, Car car) {
         int randomNo = random.nextInt(BOUND) + 1;
-        return car.move(randomNo);
+        return car.move(predicate, randomNo);
     }
 
     public List<Position> move(int randomNo) {
         return cars.stream()
-                .map(car -> mapPosition(car, randomNo))
+                .map(car -> mapPosition((x)->x>=BOUND, car, randomNo))
                 .collect(Collectors.toList());
     }
 
-    private Position mapPosition(Car car, int randomNo) {
-        return car.move(randomNo);
+    private Position mapPosition(Predicate<Integer> predicate, Car car, int randomNo) {
+        return car.move(predicate, randomNo);
     }
 
 }
