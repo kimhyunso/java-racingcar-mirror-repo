@@ -34,4 +34,13 @@ public class Position {
     public Position stop(){
         return this;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i=0; i<position; i++){
+            builder.append("-");
+        }
+        return builder.toString();
+    }
 }

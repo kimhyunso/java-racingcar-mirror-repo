@@ -30,4 +30,10 @@ public class CarName {
     public boolean isBlank(String name) {
         return name.isEmpty() || name.length() >= MAX_NO;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
+
