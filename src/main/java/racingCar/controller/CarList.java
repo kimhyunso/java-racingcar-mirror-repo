@@ -1,11 +1,10 @@
 package racingCar.controller;
 
 import racingCar.domain.Car;
+import racingCar.domain.CarName;
 import racingCar.domain.Position;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -26,10 +25,12 @@ public class CarList {
         return new Car(name);
     }
 
-    public List<Position> move() {
+    public Map<CarName, Position> move() {
         return cars.stream()
-                .map(this::mapPosition)
-                .collect(Collectors.toList());
+                .collect(Collectors.toMap(
+                        Car::getCarName,
+                        this::mapPosition
+                ));
     }
 
     private Position mapPosition(Car car) {
@@ -37,10 +38,12 @@ public class CarList {
         return car.move(randomNo);
     }
 
-    public List<Position> move(int randomNo) {
+    public Map<CarName, Position> move(int randomNo) {
         return cars.stream()
-                .map(car -> mapPosition(car, randomNo))
-                .collect(Collectors.toList());
+                .collect(Collectors.toMap(
+                    Car::getCarName,
+                    car -> mapPosition(car, randomNo)
+                ));
     }
 
     private Position mapPosition(Car car, int randomNo) {

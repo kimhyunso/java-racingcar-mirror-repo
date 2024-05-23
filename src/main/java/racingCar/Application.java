@@ -1,7 +1,11 @@
 package racingCar;
 
+import racingCar.controller.CarList;
+import racingCar.controller.CarReport;
 import racingCar.domain.GameStatus;
+import racingCar.domain.Position;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -11,9 +15,16 @@ public class Application {
         String names = input.next();
         System.out.println("시도할 횟수는 몇회인가요?");
         int tryCount = input.nextInt();
-//        tryCount-- >= 0
-//        while (GameStatus.isEnd()){
-//
-//        }
+        GameStatus status = GameStatus.START;
+        CarList carList = new CarList(names);
+        CarReport report = new CarReport();
+
+        while (status.isStart()){
+            report.positionPrint(carList.move());
+            if (status.isEnd(--tryCount)){
+                status = GameStatus.END;
+            }
+        }
+
     }
 }

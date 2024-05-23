@@ -1,5 +1,7 @@
 package racingCar.domain;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
@@ -7,7 +9,6 @@ public class Car {
     private static final int RANDOM_NO = 4;
     private CarName carName;
     private Position position;
-
     public Car(String name) {
         this.carName = new CarName(name);
         this.position = new Position();
@@ -20,6 +21,11 @@ public class Car {
         }
         return position;
     }
+
+    public CarName getCarName() {
+        return carName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

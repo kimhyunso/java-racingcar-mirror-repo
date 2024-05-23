@@ -12,7 +12,7 @@ public class GameStatusTest {
     @Test
     void 게임종료(){
         GameStatus status = GameStatus.END;
-        assertThat(status.isEnd()).isTrue();
+        assertThat(status.isEnd(0)).isTrue();
     }
 
     @DisplayName("게임 시작 테스트")
